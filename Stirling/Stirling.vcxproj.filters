@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Window">
+      <UniqueIdentifier>{68432741-252b-4823-af82-a34f4950ba79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ShadeProg">
+      <UniqueIdentifier>{5bb604b8-3430-4bd9-bfb6-1ef1a9f0f3a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DemoTest">
+      <UniqueIdentifier>{b382ea6d-b194-476c-a95b-0e01c3512a33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\MainState">
+      <UniqueIdentifier>{e558b2df-4b22-4e00-9225-875e8b9908e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Object Hierarchy">
+      <UniqueIdentifier>{7b01fd78-baf3-4526-ab39-ccf16d19ebf5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Window.cpp">
+      <Filter>Source Files\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="GLSL.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pempek_assert.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>DemoTest</Filter>
+    </ClCompile>
+    <ClCompile Include="StirlingEngine.cpp">
+      <Filter>Source Files\MainState</Filter>
+    </ClCompile>
+    <ClCompile Include="Program.cpp">
+      <Filter>Source Files\ShadeProg</Filter>
+    </ClCompile>
+    <ClCompile Include="Drawable.cpp">
+      <Filter>Source Files\Object Hierarchy</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="global_includes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.h">
+      <Filter>Source Files\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="GLSL.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pempek_assert.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StirlingEngine.h">
+      <Filter>Source Files\MainState</Filter>
+    </ClInclude>
+    <ClInclude Include="Program.h">
+      <Filter>Source Files\ShadeProg</Filter>
+    </ClInclude>
+    <ClInclude Include="Drawable.h">
+      <Filter>Source Files\Object Hierarchy</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Doxyfile" />
+  </ItemGroup>
+</Project>
