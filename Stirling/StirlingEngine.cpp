@@ -5,6 +5,9 @@
 #include "StirlingEngine.h"
 
 StirlingEngine::StirlingEngine() {
+    backColor = glm::vec4(0.2f, 0.3f, 0.3f, 1.0f);
+	gameLoop = nullptr;
+
     shaderPrograms.clear();
     assets.clear();
 }
@@ -59,7 +62,9 @@ int StirlingEngine::initEngine() {
     
     glViewport(0, 0, win.getWidth(), win.getHeight());
 
-    PPK_ASSERT_DEBUG(glGetError() == GL_NO_ERROR, "Shader(s) failed to compile correctly\n");
+    PPK_ASSERT_DEBUG(glGetError() == GL_NO_ERROR, "viewport failed to initialize correctly\n");
+
+	cam = Camera(DEFAULT_FOV, win.getWidth() / win.getHeight(), DEFAULT_NEAR_PLANE, DEFAULT_FAR_PLANE);
 
     // return -1 if errors occurred...
     if (glewErr != glewErr) {
@@ -85,10 +90,26 @@ int StirlingEngine::mainLoop() {
 
         //printf("total time: %f, dt: %f\n", win->getTime(), win->getDT());
 
-        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+        glClearColor(backColor.x, backColor.y, backColor.z, backColor.w);
         glClear(GL_COLOR_BUFFER_BIT);
 
+		// send the game loop to the host main if it exists
+		if (gameLoop != nullptr) {
+			gameLoop();
+		}
+
+		bool edit = false;
+		if (cam.edited()) {
+			edit = true;
+			cam.upToDate();
+		}
+
         for (int i = 0; i < (int)assets.size(); ++i) {
+			if (edit) {
+				assets[i]->setProjection(cam.getProjectionMatrix());
+				assets[i]->setView(cam.getViewMatrix());
+			}
+
             assets[i]->draw();
         }
         

@@ -11,8 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{0F9202F5-A1BB-4028-ABF1-31A3F6BDC6A7}</ProjectGuid>
-    <RootNamespace>Stirling</RootNamespace>
+    <ProjectGuid>{1824D768-3A47-45B2-A2AA-6A10B917655B}</ProjectGuid>
+    <RootNamespace>Project1</RootNamespace>
+    <ProjectName>SimpleTexDemo</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -68,29 +69,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Camera.cpp" />
-    <ClCompile Include="Drawable.cpp" />
-    <ClCompile Include="GLSL.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="pempek_assert.cpp" />
-    <ClCompile Include="Program.cpp" />
-    <ClCompile Include="StirlingEngine.cpp" />
-    <ClCompile Include="TexObject.cpp" />
-    <ClCompile Include="Window.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Camera.h" />
-    <ClInclude Include="Drawable.h" />
-    <ClInclude Include="global_includes.h" />
-    <ClInclude Include="GLSL.h" />
-    <ClInclude Include="TexObject.h" />
-    <ClInclude Include="Program.h" />
-    <ClInclude Include="StirlingEngine.h" />
-    <ClInclude Include="pempek_assert.h" />
-    <ClInclude Include="Window.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Doxyfile" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

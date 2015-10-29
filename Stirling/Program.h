@@ -2,6 +2,9 @@
     \brief Header file for includes and definitions on GLSL shader wrapper
 */
 
+#ifndef PROGRAM_H
+#define PROGRAM_H
+
 #include "global_includes.h"
 #include "GLSL.h"
 
@@ -11,8 +14,10 @@ public:
 	Program();
 	virtual ~Program();
 	
-	void setVerbose(bool v) { verbose = v; }
-	bool isVerbose() const { return verbose; }
+	inline void setVerbose(bool v) { verbose = v; }
+	inline bool isVerbose() const { return verbose; }
+
+	inline GLuint getPID() { return pid; }
 	
 	void setShaderNames(const std::string &v, const std::string &f);
 	virtual bool init();
@@ -34,3 +39,5 @@ private:
 	std::map<std::string,GLint> uniforms;
 	bool verbose;
 };
+
+#endif

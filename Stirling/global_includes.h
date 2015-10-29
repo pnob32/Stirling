@@ -4,12 +4,18 @@
     This file is kept as small as possible, but should contain basic openGL and related library includes
 */
 
+#ifndef GLOBALINCLUDES_H
+#define GLOBALINCLUDES_H
+
 #include <iostream>
 #include <cmath>
 #include <cstdlib>
 #include <map>
 #include <vector>
 #include <fstream>
+
+// SOIL
+#include <SOIL.h>
 
 // GLEW
 //#define GLEW_STATIC
@@ -20,9 +26,13 @@
 
 // GLM
 #include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 // Pempek Assertion library
 #define PEMPEK_ASSERT_ENABLED 1
 #include "pempek_assert.h"
 
 using namespace std;
+
+#endif

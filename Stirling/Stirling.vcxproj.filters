@@ -28,6 +28,9 @@
     <Filter Include="Source Files\Object Hierarchy">
       <UniqueIdentifier>{7b01fd78-baf3-4526-ab39-ccf16d19ebf5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Camera">
+      <UniqueIdentifier>{c65162bf-37da-440b-92a3-8e02b8337b74}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Window.cpp">
@@ -51,6 +54,12 @@
     <ClCompile Include="Drawable.cpp">
       <Filter>Source Files\Object Hierarchy</Filter>
     </ClCompile>
+    <ClCompile Include="TexObject.cpp">
+      <Filter>Source Files\Object Hierarchy</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Source Files\Camera</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="global_includes.h">
@@ -73,6 +82,12 @@
     </ClInclude>
     <ClInclude Include="Drawable.h">
       <Filter>Source Files\Object Hierarchy</Filter>
+    </ClInclude>
+    <ClInclude Include="TexObject.h">
+      <Filter>Source Files\Object Hierarchy</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Source Files\Camera</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -5,6 +5,9 @@
     TODO create key callback stuff
 */
 
+#ifndef WINDOW_H
+#define WINDOW_H
+
 #include "global_includes.h"
 
 #define DEFAULT_WIDTH 800;
@@ -50,3 +53,5 @@ private:
     GLdouble time; //!< total elapsed time
     GLdouble dtime; //!< time derivative - time since the last getDT() call. Initialized to -1.0 to indicate not yet set
 };
+
+#endif
