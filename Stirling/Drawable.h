@@ -43,6 +43,8 @@ public:
 
     int setIndexBuffer(vector<GLuint> iBuf);
 
+	inline void embedColor() { colorEmbedded = true; }
+
 	inline void setShader(Program* _shader) { shader = _shader; }
 
 	inline void setProjection(glm::mat4 _P) { P = _P; }
@@ -72,6 +74,8 @@ private:
     int bufferType;
 
     GLenum drawMode;
+
+	bool colorEmbedded;
 
 	glm::mat4 P; // Projection Matrix
 

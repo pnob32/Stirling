@@ -6,6 +6,7 @@
 
 Drawable::Drawable(GLenum mode) {
     drawMode = mode;
+	colorEmbedded = false;
     VAO = 0;
     VBO = 0;
     EBO = 0;
@@ -44,12 +45,14 @@ int Drawable::draw() {
 	GLint viewLoc = shader->getUniform("view");
 	GLint projLoc = shader->getUniform("projection");
 	// Pass them to the shaders
-	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(M));
 	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(V));
 	// Note: currently we set the projection matrix each frame, but since the projection matrix rarely changes it's often best practice to set it outside the main loop only once.
 	glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(P));
+
+	glBindVertexArray(VAO);
+
+	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(M));
 	
-    glBindVertexArray(VAO);
     int indexCount;
     if (indBuf.size() > 0) {
         indexCount = (int) indBuf.size();
@@ -77,7 +80,7 @@ int Drawable::init() {
 int Drawable::initLayout(int attribCount, int stride) {
 
     for (int i = 0; i < attribCount; ++i) {
-        glVertexAttribPointer(i, verticeCount, GL_FLOAT, GL_FALSE, 
+        glVertexAttribPointer(i, 3, GL_FLOAT, GL_FALSE, 
             stride * sizeof(GLfloat), (GLvoid*)(3 * i * sizeof(GLfloat)));
         glEnableVertexAttribArray(i);
     }

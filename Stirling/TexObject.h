@@ -31,6 +31,8 @@ public:
 
     int initTexture(int index, int dimensions, int stride);
 
+	inline void embedColor() { Drawable::embedColor(); }
+
 	inline int setIndexBuffer(vector<GLuint> buf) { return Drawable::setIndexBuffer(buf); }
 
 	inline void setShader(Program* _shader) { Drawable::setShader(_shader); }

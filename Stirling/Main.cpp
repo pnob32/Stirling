@@ -52,6 +52,8 @@ int main() {
 	//shaderProg->unbind();
 
     box = new TexObject(GL_TRIANGLES);
+	box->embedColor();
+
 	GLfloat vertices[] = {
 		-0.5f, -0.5f, -0.5f, 0.0f, 0.0f,
 		0.5f, -0.5f, -0.5f, 1.0f, 0.0f,
@@ -119,13 +121,14 @@ int main() {
 
     vector<GLfloat> verts;
     verts.clear();
-    for (int i = 0; i < 32; ++i) {
-        verts.push_back(vertices[i]);
+    //for (int i = 0; i < 32; ++i) {
+	for (float vertVal : vertices ) {
+		verts.push_back(vertVal);// vertices[i]);
     }
 
-    box->loadLayoutBuffer(verts, 3);
-    box->initLayout(2, 8);
-    box->initTexture(2, 2, 8);
+    box->loadLayoutBuffer(verts, 36);
+    box->initLayout(1, 5);
+    box->initTexture(2, 2, 5);
 
     box->load2DTexture(TEX_FILE1);
 	box->load2DTexture(TEX_FILE2);
@@ -147,7 +150,7 @@ int main() {
 
 	engine.setGameLoop(gameLoop);
 
-	engine.getCamera()->setCameraPosition(glm::vec3(0.0f, 0.0f, -5.0f));
+	engine.getCamera()->setCameraPosition(glm::vec3(0.0f, 0.0f, -10.0f));
 
     cout << "starting engine" << endl;
     engine.start();

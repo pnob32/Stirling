@@ -39,7 +39,7 @@ int TexObject::loadLayoutBuffer(vector<GLfloat> vertices, int size) {
 int TexObject::initTexture(int index, int dimensions, int stride) {
     glBindVertexArray(VAO);
     
-    glVertexAttribPointer(index, dimensions, GL_FLOAT, GL_FALSE, stride * sizeof(GLfloat), (GLvoid*)(3 * index * sizeof(GLfloat)));
+    glVertexAttribPointer(index, dimensions, GL_FLOAT, GL_FALSE, stride * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
     glEnableVertexAttribArray(index);
 
     glBindVertexArray(0); // Unbind VAO
