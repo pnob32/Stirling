@@ -3,6 +3,8 @@
 */
 
 #include "StirlingEngine.h"
+// TODO make cross platform
+#include <Windows.h>
 
 StirlingEngine::StirlingEngine() {
     backColor = glm::vec4(0.2f, 0.3f, 0.3f, 1.0f);
@@ -83,39 +85,51 @@ int StirlingEngine::start() {
 int StirlingEngine::mainLoop() {
     int err;
     PPK_ASSERT_WARNING((err = win.exists()), "Stirling is about to start the main loop and window is null - something went very wrong\n");
-    while (!win.shouldClose()) {
+    //while (!win.shouldClose()) {
        // cout << "stepping through program loop ";
 
        // win.step();
 
         //printf("total time: %f, dt: %f\n", win->getTime(), win->getDT());
 
-        glClearColor(backColor.x, backColor.y, backColor.z, backColor.w);
-        glClear(GL_COLOR_BUFFER_BIT);
-
-		// send the game loop to the host main if it exists
-		if (gameLoop != nullptr) {
-			gameLoop();
+	BOOL bRet;
+	MSG msg;
+	HWND hWnd = NULL;
+	while (!win.shouldClose()) {
+		bRet = PeekMessage(&msg, hWnd, 0, 0, 1);
+		if (bRet == -1) {
+			// handle the error and possibly exit
 		}
+		else {
+			glClearColor(backColor.x, backColor.y, backColor.z, backColor.w);
+			glClear(GL_COLOR_BUFFER_BIT);
 
-		bool edit = false;
-		if (cam.edited()) {
-			edit = true;
-			cam.upToDate();
-		}
-
-        for (int i = 0; i < (int)assets.size(); ++i) {
-			if (edit) {
-				assets[i]->setProjection(cam.getProjectionMatrix());
-				assets[i]->setView(cam.getViewMatrix());
+			// send the game loop to the host main if it exists
+			if (gameLoop != nullptr) {
+				gameLoop();
 			}
 
-            assets[i]->draw();
-        }
-        
-        glfwSwapBuffers(win.getWindow());
+			bool edit = false;
+			if (cam.edited()) {
+				edit = true;
+				cam.upToDate();
+			}
 
-        PPK_ASSERT_WARNING((err = win.exists()), "Stirling is in main loop and window is null - something went very wrong\n");
-    }
+			for (int i = 0; i < (int)assets.size(); ++i) {
+				if (edit) {
+					assets[i]->setProjection(cam.getProjectionMatrix());
+					assets[i]->setView(cam.getViewMatrix());
+				}
+
+				assets[i]->draw();
+			}
+
+			glfwSwapBuffers(win.getWindow());
+
+			PPK_ASSERT_WARNING((err = win.exists()), "Stirling is in main loop and window is null - something went very wrong\n");
+			TranslateMessage(&msg);
+			DispatchMessage(&msg);
+		}
+	}
     return err;
 }

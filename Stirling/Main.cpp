@@ -13,8 +13,8 @@ Main should only contain engine initializations and then branch into step-based 
 #define TEX_3D_VERT "shaders/simple3dtexshader.vert"
 //#define 3D_TEX_FRAG "shaders/simple"
 
-#define TEX_FILE1 "../../Assets/Textures/container.jpg"
-#define TEX_FILE2 "../../Assets/Textures/awesomeface.png"
+#define TEX_FILE1 "ExampleAssets/Textures/container.jpg"
+#define TEX_FILE2 "ExampleAssets/Textures/awesomeface.png"
 
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
 

@@ -14,6 +14,9 @@
 #include <vector>
 #include <fstream>
 
+// TODO make cross platform
+//#include <Windows.h>
+
 // SOIL
 #include <SOIL.h>
 
