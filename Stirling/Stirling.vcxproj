@@ -127,6 +127,7 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Drawable.cpp" />
     <ClCompile Include="GLSL.cpp" />
+    <ClCompile Include="KeyHandler.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="pempek_assert.cpp" />
     <ClCompile Include="Program.cpp" />
@@ -139,6 +140,7 @@
     <ClInclude Include="Drawable.h" />
     <ClInclude Include="global_includes.h" />
     <ClInclude Include="GLSL.h" />
+    <ClInclude Include="KeyHandler.h" />
     <ClInclude Include="TexObject.h" />
     <ClInclude Include="Program.h" />
     <ClInclude Include="StirlingEngine.h" />

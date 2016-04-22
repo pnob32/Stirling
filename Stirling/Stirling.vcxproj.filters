@@ -60,6 +60,9 @@
     <ClCompile Include="Camera.cpp">
       <Filter>Source Files\Camera</Filter>
     </ClCompile>
+    <ClCompile Include="KeyHandler.cpp">
+      <Filter>Source Files\MainState</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="global_includes.h">
@@ -88,6 +91,9 @@
     </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>Source Files\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyHandler.h">
+      <Filter>Source Files\MainState</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

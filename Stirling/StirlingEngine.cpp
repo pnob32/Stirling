@@ -6,15 +6,22 @@
 // TODO make cross platform
 #include <Windows.h>
 
+KeyHandler keyHandler;
+
 StirlingEngine::StirlingEngine() {
     backColor = glm::vec4(0.2f, 0.3f, 0.3f, 1.0f);
 	gameLoop = nullptr;
+   keyHandler = KeyHandler();
 
     shaderPrograms.clear();
     assets.clear();
 }
 
 StirlingEngine::~StirlingEngine() {}
+
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode) {
+   keyHandler.key_callback(window, key, scancode, action, mode);
+}
 
 int StirlingEngine::initGL() {
 
@@ -28,6 +35,9 @@ int StirlingEngine::initGL() {
 
     win = Window();
     win.init();
+
+    glfwSetKeyCallback(win.getWindow(), key_callback);
+    //glfwSetInputMode(win.getWindow(), GLFW_STICKY_KEYS, 1);
 
     if (glfwErr != GL_TRUE) {
         return -1;
@@ -83,14 +93,8 @@ int StirlingEngine::start() {
 }
 
 int StirlingEngine::mainLoop() {
-    int err;
-    PPK_ASSERT_WARNING((err = win.exists()), "Stirling is about to start the main loop and window is null - something went very wrong\n");
-    //while (!win.shouldClose()) {
-       // cout << "stepping through program loop ";
-
-       // win.step();
-
-        //printf("total time: %f, dt: %f\n", win->getTime(), win->getDT());
+   int err;
+   PPK_ASSERT_WARNING((err = win.exists()), "Stirling is about to start the main loop and window is null - something went very wrong\n");
 
 	BOOL bRet;
 	MSG msg;
@@ -125,6 +129,7 @@ int StirlingEngine::mainLoop() {
 			}
 
 			glfwSwapBuffers(win.getWindow());
+         //glfwPollEvents();
 
 			PPK_ASSERT_WARNING((err = win.exists()), "Stirling is in main loop and window is null - something went very wrong\n");
 			TranslateMessage(&msg);
@@ -132,4 +137,8 @@ int StirlingEngine::mainLoop() {
 		}
 	}
     return err;
+}
+
+void StirlingEngine::addKeyHandler(char key, callback keyHandle) {
+   keyHandler.add_callback(key, keyHandle);
 }

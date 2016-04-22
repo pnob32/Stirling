@@ -8,6 +8,7 @@
 
 #include "global_includes.h"
 #include "Window.h"
+#include "KeyHandler.h"
 #include "Camera.h"
 //#include "Program.h"
 #include "Drawable.h"
@@ -35,29 +36,30 @@ public:
 
     // getters
     inline Window* getWindow() { return &win; }
-	inline Camera* getCamera() { return &cam; }
+	 inline Camera* getCamera() { return &cam; }
 
     // adders
     inline void addAsset(Drawable* asset) { assets.push_back(asset); }
+    void addKeyHandler(char key, callback keyhandle);
 
     // checkers
 
 private:
-    Window win;
-	Camera cam;
-    
-    vector<Program*> shaderPrograms;
+   Window win;
+   Camera cam;
 
-    vector<Drawable*> assets;
-
-    int mainLoop();
-
-    glm::vec4 backColor;
-
+   //KeyHandler keyHandler;
+   
+   vector<Program*> shaderPrograms;
+   vector<Drawable*> assets;
+   int mainLoop();
+   glm::vec4 backColor;
 	// Projection Matrix
 	glm::mat4 projection;
 
 	void (*gameLoop)();
+
+   //void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
 };
 
 #endif
